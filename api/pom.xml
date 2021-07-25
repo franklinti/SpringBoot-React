@@ -52,8 +52,14 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
+		<dependency> 
+			<groupId>junit</groupId> 
+			<artifactId>junit</artifactId> 
+			<scope>teste</scope> 
+		</dependency>
 	</dependencies>
 
+	
 	<build>
 		<plugins>
 			<plugin>

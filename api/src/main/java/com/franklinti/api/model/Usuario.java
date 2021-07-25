@@ -1,4 +1,4 @@
-package model;
+package com.franklinti.api.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,18 +11,20 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Data
 @NoArgsConstructor
+@Data
 @AllArgsConstructor
 public class Usuario {
     
+    public Usuario(String string, String string2, String string3, String string4, String string5) {
+    }
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    private String name;
-    private String surname;
+    private String nome;
+    private String sobrenome;
     private String email;
-    private String username;
-    private String password;
+    private String usuarioNome;
+    private String senha;
 }
