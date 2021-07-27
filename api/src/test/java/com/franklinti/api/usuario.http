@@ -1,0 +1,19 @@
+@host = http://localhost:7000/api/v1/usuario
+###
+GET {{host}}
+
+###
+POST {{host}}
+Content-type:  aplication/json
+
+    {
+        "nome":"franklin",
+        "sobrenome": "franklin",
+        "email": "franklin",
+        "usuarioNome": "franklin",
+        "senha": "franklin"
+    }
+
+####
+DELETE {{host}}/2
+Content-Type: application/json

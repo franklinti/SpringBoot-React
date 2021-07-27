@@ -1,10 +1,11 @@
 package com.franklinti.api.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,7 +15,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @AllArgsConstructor
-public class Usuario {
+public class Usuario implements Serializable{
     
     public Usuario(String string, String string2, String string3, String string4, String string5) {
     }

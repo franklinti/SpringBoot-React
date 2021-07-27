@@ -5,8 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+
 
 import com.franklinti.api.model.Usuario;
 import com.franklinti.api.repository.UsuarioRepository;
@@ -27,9 +26,12 @@ public class UsuarioTests {
    
     @Test
     public void testeSalvarUsuario(){
-        Usuario usuario = new Usuario("Franklin",
-        "Silva","franklinti@outlook.com",
-        "Franklin","123");
+        Usuario usuario = new Usuario();
+        usuario.setNome("Franklin");
+        usuario.setSobrenome("Silva");
+        usuario.setEmail("franklint@outlook.com");
+        usuario.setUsuarioNome("Franklin");
+        usuario.setSenha("123");
         usuarioRepository.save(usuario);
         entityManager.persist(usuario);
         Assert.assertEquals("Franklin", usuario.getNome());
