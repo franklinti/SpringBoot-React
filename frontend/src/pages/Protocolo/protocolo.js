@@ -1,13 +1,13 @@
-import logo from '../assets/cagece.jpg';
+import logo from '../../assets/2.jpg';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../protocolo/protocolo.css';
+import '../Protocolo/protocolo.css';
 
 function Cad_Protocolo() {
   const [codigo, setCodigo] = useState('');
   const [dataP, setDataProto] = useState('');
   const [textoP, setTexto] = useState('');
-  const [usuario, setUsuario] = useState([]);
+  const [usuario, setUsuario] = useState('');
 
   function registrar(e) {
     var myHeaders = new Headers();
@@ -36,8 +36,6 @@ function Cad_Protocolo() {
                 alert("Protocolo com sucesso")
             }
         })
-        .then(result => console.log(result))
-        .catch(error => console.log('error', error));
 }
   return (
     <div className="container-center">
@@ -46,15 +44,16 @@ function Cad_Protocolo() {
                 <img src={logo} alt="logomarca" />
             </div>
             <form onSubmit={registrar}>
-                <h1>Atendimentos</h1>
+                <h1>Protocolo</h1>
                 <input type="text" placeholder="codigo" value={codigo} onChange={(e) => setCodigo(e.target.value)} />
                 <input type="text" placeholder="texto" value={textoP} onChange={(e) => setTexto(e.target.value)} />
-                <input type="text" placeholder="texto" value={usuario} onChange={(e) => setUsuario(e.target.value)} />
+                <input type="text" placeholder="usuario" value={usuario} onChange={(e) => setUsuario(e.target.value)} />
                 <input type="date" placeholder="01/01/2021" value={dataP} onChange={(e) => setDataProto(e.target.value)} />
+               
                 <label>Estados: 
                 <select id="lista-estados">
                 </select>
-                </label>
+                </label> 
                 <br></br>
                 <button type="submit">Cadastrar</button>
             </form>

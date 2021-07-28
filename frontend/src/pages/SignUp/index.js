@@ -13,22 +13,7 @@ function SignUp() {
   
 
   function registrar(e) {
- /*
-   API.post(`/usuario`).then(res =>{
-        console.log(res)
-        console.log(res.data)
-    })
-    
-     
-      if(nome === ""){
-        alert("Insira nome!");
-        nome.focus();
-      }else{
-        if(email === ""){
-            alert("Insira e-mail!");
-        }
-      }
-      */
+
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
     
@@ -56,11 +41,7 @@ function SignUp() {
                     alert('Cadastrado com sucesso')
                 }
             })
-            .then(result => console.log(result))
-            .catch(error => console.log('error', error));
       
-  
-
 }
   return (
     <div className="container-center">

@@ -10,8 +10,8 @@ export default function RotasWrapper({
 }){
 
     const{signed,loading} = useContext(AuthContext);
-  //  const signed = true;
-    //const loading = false;
+   // const signed = true;
+  //  const loading = false;
     
     if(loading){
         return(

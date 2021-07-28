@@ -8,13 +8,16 @@ import Route from './Rotas'
 import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SignUp';
 import Dashboard from '../pages/Dashboard';
+import Protocolo from '../pages/Protocolo/protocolo';
 
 export default function Rotas(){
     return(
         <Switch>
             <Route exact path="/" component={SignIn}/>
             <Route exact path="/registrar" component={SignUp}/>
+            <Route exact path="/protocolo" component={Protocolo}/>
             <Route exact isPrivate path="/dashboard" component={Dashboard}/>
+           
         </Switch>
     )
 }
