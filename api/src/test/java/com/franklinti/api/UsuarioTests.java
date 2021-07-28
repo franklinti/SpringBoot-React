@@ -5,15 +5,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import antlr.collections.List;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 
+import java.util.ArrayList;
+
+import javax.management.Query;
+
 import com.franklinti.api.model.Usuario;
 import com.franklinti.api.repository.UsuarioRepository;
 
-import org.assertj.core.api.ListAssert;
+import org.h2.engine.Session;
+import org.hibernate.SessionBuilder;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -28,17 +34,19 @@ public class UsuarioTests {
     @Autowired
     private UsuarioRepository usuarioRepository;
    
+
+   
     @Test
     public void testeSalvarUsuario(){
         Usuario usuario = new Usuario();
-        usuario.setNome("Franklin");
-        usuario.setSobrenome("Silva");
-        usuario.setEmail("franklint@outlook.com");
-        usuario.setUsuarioNome("Franklin");
+        usuario.setNome("F");
+        usuario.setSobrenome("s");
+        usuario.setEmail("@outlook.com");
+        usuario.setUsuarioNome("F");
         usuario.setSenha("123");
         usuarioRepository.save(usuario);
         entityManager.persist(usuario);
-        Assert.assertEquals("Franklin", usuario.getNome());
+        Assert.assertEquals("F", usuario.getNome());
     }
 
     @Test
@@ -46,26 +54,18 @@ public class UsuarioTests {
         Usuario usuario = new Usuario();
         usuario.setId(1l);
         usuarioRepository.delete(usuario);
-        
         Assert.assertNotEquals("1l", usuario.getId());
-        
     }
     @Test
     public void testeAtualizarUsuario(){
-        Usuario usuario = new Usuario();
-        usuario.setNome("F");
-        usuario.setSobrenome("S");
-        usuario.setEmail("@outlook.com");
-        usuario.setUsuarioNome("");
-        usuario.setSenha("123");
+        Long id = 1l;
+        Usuario usuario = new Usuario(id,"F","S","email","un","123");
         usuarioRepository.save(usuario);
-        entityManager.persist(usuario);
         Assert.assertEquals("F", usuario.getNome());
     }
     @Test
     public void testListaUsuario(){
-        ListAssert<Usuario> u = (ListAssert<Usuario>) usuarioRepository.findAll();
-        Assert.assertNotNull(u); 
+    
     }
    
 }
