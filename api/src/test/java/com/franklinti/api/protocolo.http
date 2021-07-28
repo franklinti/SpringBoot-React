@@ -1,6 +1,6 @@
 @host = http://localhost:7000/api/v1/protocolo
 ###
-GET {{host}}/1
+GET {{host}}
 ###
 POST {{host}}
 content-type: application/json
@@ -11,6 +11,19 @@ content-type: application/json
     "texto": "franklin",
     "usuario": {
         "nome":"teste"
+    }
+}
+
+####
+PUT {{host}}/1
+content-type: application/json
+
+{
+    "codigo":"3",
+    "data": "2021-07-28 12:36",
+    "texto": "frankli",
+    "usuario": {
+        "nome":"f"
     }
 }
 

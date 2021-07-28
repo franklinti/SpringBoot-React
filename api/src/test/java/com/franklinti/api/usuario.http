@@ -7,11 +7,11 @@ POST {{host}}
 content-type: application/json
 
 {
-    "nome":"frankli",
-    "sobrenome": "frankln",
-    "email": "frankln",
-    "usuarioNome": "franlin",
-    "senha": "frankin"
+    "nome":"f",
+    "sobrenome": "f",
+    "email": "@outlook.com",
+    "usuarioNome": "f",
+    "senha": "123"
  }
 
 ####
@@ -20,10 +20,10 @@ content-type: application/json
 
 {
     "nome":"f1",
-    "sobrenome": "frankln",
-    "email": "frankln",
-    "usuarioNome": "franlin",
-    "senha": "frankin"
+    "sobrenome": "f1",
+    "email": "@outlook.com",
+    "usuarioNome": "f1",
+    "senha": "1234"
  }
 
 ####

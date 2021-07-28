@@ -24,7 +24,13 @@ public class UsuarioService  implements IUsuario{
 
     @Override
     public MessageResponseDTO salvar(Usuario u) {
-        Usuario user = usuarioRepository.save(u);
+        Usuario user = new Usuario();
+        user.setNome(u.getNome()); 
+        user.setSobrenome(u.getSobrenome()); 
+        user.setEmail(u.getEmail()); 
+        user.setUsuarioNome(u.getUsuarioNome()); 
+        user.setSenha(u.getSenha()); 
+        usuarioRepository.save(user);
         return MessageResponseDTO.builder()
         .message("OK"+user.getEmail())
         .build();
