@@ -1,19 +1,31 @@
-@host = http://localhost:7000/api/v1/usuario
+@host = http://localhost:7000/api/v1/usuario 
 ###
-GET {{host}}
+GET {{host}}/1
 
 ###
 POST {{host}}
-Content-type:  aplication/json
+content-type: application/json
 
-    {
-        "nome":"franklin",
-        "sobrenome": "franklin",
-        "email": "franklin",
-        "usuarioNome": "franklin",
-        "senha": "franklin"
-    }
+{
+    "nome":"frankli",
+    "sobrenome": "frankln",
+    "email": "frankln",
+    "usuarioNome": "franlin",
+    "senha": "frankin"
+ }
 
 ####
-DELETE {{host}}/2
+PUT {{host}}/1
+content-type: application/json
+
+{
+    "nome":"f1",
+    "sobrenome": "frankln",
+    "email": "frankln",
+    "usuarioNome": "franlin",
+    "senha": "frankin"
+ }
+
+####
+DELETE {{host}}/1
 Content-Type: application/json

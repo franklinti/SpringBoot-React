@@ -38,5 +38,14 @@ public class UsuarioTests {
         
     }
 
+    @Test
+    public void testeRemoverUsuario(){
+        Usuario usuario = new Usuario();
+        usuario.getId();
+        usuarioRepository.delete(usuario);
+        entityManager.persist(usuario);
+        Assert.assertNotEquals("1", usuario.getId());
+        
+    }
    
 }

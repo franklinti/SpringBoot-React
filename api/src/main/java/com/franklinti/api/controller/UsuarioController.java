@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@CrossOrigin("http://localhost:3000")
-@RequestMapping("api/v1/usuario")
+@CrossOrigin("http://localhost:8080")
+@RequestMapping("/api/v1/usuario")
 public class UsuarioController {
     
     private UsuarioService usuarioService;
@@ -30,27 +30,27 @@ public class UsuarioController {
     }
 
     @PostMapping
-    public MessageResponseDTO salvarUsuario(Usuario usuario){
-         return usuarioService.salvarUsuario(usuario);
-    }
-
-    @GetMapping
-    public ResponseEntity<List<Usuario>> getUsuarios(){
-        return usuarioService.getUsuarios();
-    }
-
-    @GetMapping("{id}")
-    public ResponseEntity<Usuario> getUsuario(@PathVariable(value="id") Long id){
-        return usuarioService.getUsuario(id);
+    public MessageResponseDTO salvarUsuario( @RequestBody Usuario usuario){
+         return usuarioService.salvar(usuario);
     }
 
     @PutMapping("{id}")
     public Usuario atualizarUsuario(@RequestBody Usuario novoUsuario,@PathVariable(value="id")Long id){
-        return usuarioService.atualizarUsuario(novoUsuario, id);
+        return usuarioService.atualizar(novoUsuario, id);
+    }
+    
+    @GetMapping
+    public ResponseEntity<List<Usuario>> getUsuarios(){
+        return usuarioService.getAllUsuarios();
+    }
+
+    @GetMapping("{id}")
+    public ResponseEntity<Usuario> getUsuario(@PathVariable(value="id") Long id){
+        return usuarioService.getUsuarioId(id);
     }
 
     @DeleteMapping("{id}")
     public ResponseEntity<Void> removerUsuario(@PathVariable(value = "id")Long id){
-        return usuarioService.removerUsuario(id);
+        return usuarioService.deletar(id);
     }
 }

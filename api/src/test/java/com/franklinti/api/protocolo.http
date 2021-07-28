@@ -1,0 +1,19 @@
+@host = http://localhost:7000/api/v1/protocolo
+###
+GET {{host}}/1
+###
+POST {{host}}
+content-type: application/json
+
+{
+    "codigo":"3",
+    "data": "2021-07-28 12:36",
+    "texto": "franklin",
+    "usuario": {
+        "nome":"teste"
+    }
+}
+
+####
+DELETE {{host}}/1
+Content-Type: application/json
