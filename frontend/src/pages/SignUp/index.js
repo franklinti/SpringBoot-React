@@ -2,7 +2,6 @@ import logo from '../../assets/2.jpg';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../../pages/SignUp/signup.css';
-import API from '../../api';
 
 function SignUp() {
   const [nome, setNome] = useState('');
@@ -11,9 +10,7 @@ function SignUp() {
   const [userNome, setUsernome] = useState('');
   const [senha, setSenha] = useState('');
   
-
   function registrar(e) {
-
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
     

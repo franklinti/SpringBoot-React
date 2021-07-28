@@ -5,9 +5,9 @@ import '../Protocolo/protocolo.css';
 
 function Cad_Protocolo() {
   const [codigo, setCodigo] = useState('');
-  const [dataP, setDataProto] = useState('');
+  const [dataP, setDataP] = useState('');
   const [textoP, setTexto] = useState('');
-  const [usuario, setUsuario] = useState('');
+  const [usuario, setUsuario] = useState([]);
 
   function registrar(e) {
     var myHeaders = new Headers();
@@ -15,8 +15,8 @@ function Cad_Protocolo() {
 
     var raw = JSON.stringify({
         "codigo": codigo,
-        "dataProto": dataP,
-        "textoProto": textoP,
+        "dataP": dataP,
+        "textoP": textoP,
         "usuario":usuario
     });
 
@@ -27,10 +27,10 @@ function Cad_Protocolo() {
         redirect: 'follow'
     };
 
-    fetch("http://localhost:8080/api/v1/protocolo", requestOptions)
+    fetch("http://localhost:7000/api/v1/protocolo", requestOptions)
         .then(response => response.json())
         .then(response => {
-            if (response == "existe_codigo") {
+            if (response === "existe_codigo") {
                 alert("Codigo ja cadastrado!")
             } else {
                 alert("Protocolo com sucesso")
@@ -48,12 +48,8 @@ function Cad_Protocolo() {
                 <input type="text" placeholder="codigo" value={codigo} onChange={(e) => setCodigo(e.target.value)} />
                 <input type="text" placeholder="texto" value={textoP} onChange={(e) => setTexto(e.target.value)} />
                 <input type="text" placeholder="usuario" value={usuario} onChange={(e) => setUsuario(e.target.value)} />
-                <input type="date" placeholder="01/01/2021" value={dataP} onChange={(e) => setDataProto(e.target.value)} />
-               
-                <label>Estados: 
-                <select id="lista-estados">
-                </select>
-                </label> 
+                <input type="date" placeholder="01/01/2021" value={dataP} onChange={(e) => setDataP(e.target.value)} />
+            
                 <br></br>
                 <button type="submit">Cadastrar</button>
             </form>
